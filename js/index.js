@@ -54,17 +54,27 @@ function removeProduct(event) {
 // ITERATION 5
 
 function createProduct() {
-  //... your code goes here
+  console.log('ababiju')
+  let clone= document.getElementsByClassName("product");
+  //let clone2=clone[0].cloneNode();
+  let ondeClone=document.querySelector(".body tbody");
+  console.log(clone);
+  console.log(ondeClone);
+  ondeClone.appendChild(clone);
+  location.reload();
 }
 
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
 
-  const removeBtn= document.getElementsByClassName("btn btn-remove")
+  const removeBtn= document.getElementsByClassName("btn btn-remove");
   for (i=0;i<removeBtn.length;i++){
   removeBtn[i].addEventListener("click", removeProduct);
   }
+
+  const createPro=document.getElementById("create");
+  createPro.addEventListener('click',createProduct);
 });
 
 
