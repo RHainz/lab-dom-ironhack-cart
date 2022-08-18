@@ -24,7 +24,7 @@ function calculateAll() {
   console.log(allProduct);
   
   let valorTotal =0;
-
+  
   for (i=0;i<allProduct.length;i++){
     valorTotal += updateSubtotal(allProduct[i]);
   }
@@ -53,15 +53,41 @@ function removeProduct(event) {
 
 // ITERATION 5
 
-function createProduct() {
+function createProduct(event) {
   console.log('ababiju')
   let clone= document.getElementsByClassName("product");
-  //let clone2=clone[0].cloneNode();
-  let ondeClone=document.querySelector(".body tbody");
-  console.log(clone);
-  console.log(ondeClone);
-  ondeClone.appendChild(clone);
-  location.reload();
+  let clone2=clone[0].cloneNode(true);
+  
+  let eventio= event.currentTarget;
+  console.log(eventio);
+  
+  let eventio2= eventio.parentNode.parentNode.parentNode.parentNode;
+  console.log(eventio2);
+  
+  let eventio3=document.querySelector("#cart tbody");
+  console.log(eventio3);
+  console.log(clone2);
+  eventio3.appendChild(clone2);
+  
+  const createRow = document.querySelector('.create-product');
+  let newProdNameInput = createRow.querySelector('input');
+  let newProdNameValue = newProdNameInput.value;
+  let newProdPriceInput = createRow.querySelector("input[type='number']");
+  let newProdPriceValue = Number(newProdPriceInput.valueAsNumber.toFixed(2));
+
+  console.log(newProdNameValue);
+  console.log(newProdPriceValue);
+
+  let localizarProd=document.getElementsByClassName("product");
+  console.log(localizarProd);
+  let localProd=localizarProd.length-1;
+  console.log(localProd);
+  let locis=localizarProd[localProd].querySelector('.name span');
+  locis.innerText=newProdNameValue;
+  console.log(locis)
+  let locis2=localizarProd[localProd].querySelector('.price span');
+  locis2.innerHTML=newProdPriceValue;
+
 }
 
 window.addEventListener('load', () => {
