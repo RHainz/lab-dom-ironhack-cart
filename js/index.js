@@ -40,12 +40,15 @@ function calculateAll() {
 
 function removeProduct(event) {
   const target = event.currentTarget;
+  let oldValor = Number(document.querySelector("#total-value span").innerText);
+  console.log(oldValor);
+  novoValor=oldValor-updateSubtotal(target.parentNode.parentNode);
+  console.log(novoValor);
   console.log('The target in remove is:', target);
   const parent = target.parentNode.parentNode.parentNode;
   parent.removeChild(target.parentNode.parentNode);
   console.log(parent);
-  
-  
+  return document.querySelector("#total-value span").innerText=novoValor; 
 }
 
 // ITERATION 5
